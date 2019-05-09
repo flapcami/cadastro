@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title >HOME </title >
+        </head>
+    <body>
+
+        {% if session["usuario"] %}
+        <h2>Gastos</h2>
+        {%for g in gastos:%}
+            {{g.den}} | {{g.tip}} | R${{g.valor}} <a href ="/excluir_gasto?den={{g.den}}"> X </a><br>
+        {%endfor%}
+        <br>
+        <a href = "/logout"> logout </a>
+        {% else %} 
+            <a href="/form_login">Logar</a> <br><br>
+        {% endif %}
+
+ </body>
+ </html>

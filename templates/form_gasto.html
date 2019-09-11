@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Formulário Gasto Mensal</title>
+    <link rel="stylesheet" type="text/css" href="/static/form_gasto_css.css" />
+</head>
+<body>
+    <div class = "container">
+        <h1 class="titulo">Cadastro de Renda Mensal</h1>
+        <form action="/adicionar_gasto", method="post">
+            <input type="text" placeholder="Nome do gasto" name="nome_gasto" required>
+            <input type="text" placeholder="Valor gasto" name="valor_gasto" required>
+            <select name="tipo_gasto" required>
+                <option value="fixo">Fixo</option>
+                <option value="variado">Variado</option>
+                <option value="não fixo">Não Fixo</option>
+            </select>
+            <br><br>
+            <button type="submit">Cadastrar</button>
+            <button type="submit"><a href="/cancelar_operacao">Cancelar</a></button>
+            <br><br>
+        </form>
+    </div>  
+</body>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta charset="utf-8" />
+    <title>Formulário Renda Mensal</title>
+    <link rel="stylesheet" type="text/css" href="/static/form_renda_css.css">
+</head>
+<body>
+    <div class = "container">
+        <form action="/adicionar_renda", method="post">
+        <h1 class="titulo">Cadastro de Renda Mensal</h1>
+        <input type="text" placeholder="Nome da Renda" name="nome_renda" required>
+        <input type="text" placeholder="Valor Recebido" name="valor_renda" required>
+        
+        <br><br>
+        <button type="submit">Cadastrar</button>
+        <button type="submit"><a href="/cancelar_operacao">Cancelar</a></button>
+        <br><br>
+        </form>
+    </div> 
+</body>

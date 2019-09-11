@@ -1,20 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title >HOME </title >
-        </head>
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <title>Início</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/inicio_css.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+<body> 
+    <div class="header">
+        <a href="/" class="logo">MySpendings</a>
+        <div class="header-right">
+          <a class="active" href="#inicio">Início</a>
+          <a href="/exibir_historico">Histórico</a>
+          <a href="/exibir_sobre">Sobre</a>
+          <a href="/logout">Sair</a>
+        </div>
+    </div>
 
-        {% if session["usuario"] %}
-        <h2>Gastos</h2>
-        {%for g in gastos:%}
-            {{g.den}} | {{g.tip}} | R${{g.valor}} <a href ="/excluir_gasto?den={{g.den}}"> X </a><br>
-        {%endfor%}
-        <br>
-        <a href = "/logout"> logout </a>
-        {% else %} 
-            <a href="/form_login">Logar</a> <br><br>
-        {% endif %}
+    <br><h1 class="titulo">Setembro 2019</h1>
 
- </body>
- </html>
+    <div class="caixa">
+        <h4 class="valores">Total Renda: </h4><h4 class="valores">{{valor_renda}}</h4> <br>
+        <h4 class="valores">Total Gasto: </h4><h4 class="valores">{{valor_gasto}}</h4>
+    </div>
+
+    <br><br>
+    
+    <div class="container">
+        <label class="subtitulo"><b>Renda Mensal</b></label><br>
+    
+        <table>
+            <tr>
+              <th>Nome</th>
+              <th>Valor</th>
+              <th><i class="fas fa-pencil-ruler"></i></th>
+              <th><i class="fas fa-times"></i></th>
+            </tr>
+            {% for r in lista_renda: %}
+              <tr>
+                <td>{{r.nome}}</td>
+                <td>{{r.valor}}</td>
+                <td><a href=""><i class="fas fa-pencil-ruler"></i></a></td>
+                <td><a href=""><i class="fas fa-times"></i></a></td>
+              </tr>
+            {% endfor %}
+          </table>
+          <br>
+          <a href='/form_renda'><label>Add Renda</label></a>
+          
+
+          <br><br><br>
+          <label class="subtitulo"><b>Gasto Mensal</b></label><br>
+    
+        <table>
+            <tr>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Valor</th>
+              <th><i class="fas fa-pencil-ruler"></i></th>
+              <th><i class="fas fa-times"></i></th>
+            </tr>
+            {% for g in lista_gasto: %}
+              <tr>
+                <td>{{g.nome}}</td>
+                <td>{{g.tipo}}</td>
+                <td>{{g.valor}}</td>
+                <td><a href=""><i class="fas fa-pencil-ruler"></i></a></td>
+                <td><a href=""><i class="fas fa-times"></i></a></td>
+              </tr>
+            {% endfor %}
+          </table>
+          <br>
+          <a href='/form_gasto'><label>Add Gasto</label></a>
+    
+    </div>
+</body>
+</html>  
